@@ -78,8 +78,26 @@ function game() {
     for (let i = 0; i < 5; i++) {
 
         console.log(playRound());
-
     }
+
+    if (playerScore > computerScore) {
+        console.log(
+            "YOU WIN!!!\n" +
+            "Final Player Score: " + playerScore + "\n" +
+            "Final Computer Score: " + computerScore);
+
+    } else if (playerScore < computerScore) {
+        console.log(
+            "You lose...\n" +
+            "Final Player Score: " + playerScore + "\n" +
+            "Final Computer Score: " + computerScore);
+    } else {
+        console.log(
+            "It's a tie!\n" +
+            "Final Player Score: " + playerScore + "\n" +
+            "Final Computer Score: " + computerScore); 
+    }
+
 }
 
 game();

@@ -14,8 +14,8 @@ function computerPlay() { //Generates random computer move.
 let computerSelection;
 let playerSelection;
 
-let playerScore;
-let computerScore;
+let playerScore = 0;
+let computerScore = 0;
 
 function playRound(playerSelection, computerSelection) {
 
@@ -24,24 +24,52 @@ function playRound(playerSelection, computerSelection) {
 
 
     if (playerSelection === "rock" && computerSelection === "paper") {
-        return "You lose! Paper beats rock.";
+        ++computerScore;
+        return (
+            "You lose! Paper beats rock.\n" +
+            "Player Score: " + playerScore + "\n" +
+            "Computer Score: " + computerScore);
 
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return "You win! Rock beats scissors.";
+        ++playerScore;
+        return (
+            "You win! Rock beats scissors.\n" +
+            "Player Score: " + playerScore + "\n" +
+            "Computer Score: " + computerScore);
 
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        return "You win! Paper beats rock.";
+        ++playerScore;
+        return (
+            "You win! Paper beats rock.\n" +
+            "Player Score: " + playerScore + "\n" +
+            "Computer Score: " + computerScore);
     
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        return "You lose! Scissors beats paper.";
+        ++computerScore;
+        return (
+            "You lose! Scissors beats paper.\n" +
+            "Player Score: " + playerScore + "\n" +
+            "Computer Score: " + computerScore);
 
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return "You lose! Rock beats scissors.";
+        ++computerScore;
+        return (
+            "You lose! Rock beats scissors.\n" +
+            "Player Score: " + playerScore + "\n" +
+            "Computer Score: " + computerScore);
 
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        return "You win! Scissors beats paper.";
+        ++playerScore;
+        return (
+            "You win! Scissors beats paper.\n" +
+            "Player Score: " + playerScore + "\n" +
+            "Computer Score: " + computerScore);
     
-    } else { return "Draw!" };
+    } else { return (
+        "Draw!\n" +
+        "Player Score: " + playerScore + "\n" +
+        "Computer Score: " + computerScore);
+    }
 
 }
 

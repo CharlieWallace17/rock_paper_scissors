@@ -11,11 +11,17 @@ function computerPlay() { //Generates random computer move.
     } else { return "scissors"; }
 }
 
-let computerSelection = computerPlay();
+let computerSelection;
+let playerSelection;
 
-let playerSelection = prompt("What's your move?").toLowerCase();
+let playerScore;
+let computerScore;
 
 function playRound(playerSelection, computerSelection) {
+
+    playerSelection = prompt("What's your move?").toLowerCase();
+    computerSelection = computerPlay();
+
 
     if (playerSelection === "rock" && computerSelection === "paper") {
         return "You lose! Paper beats rock.";
@@ -39,4 +45,14 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+
+    for (let i = 0; i < 5; i++) {
+
+        console.log(playRound());
+
+    }
+}
+
+game();
+

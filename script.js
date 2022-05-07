@@ -13,9 +13,20 @@ function computerPlay() { //Generates random computer move.
 
 function playerPlay() {
 
-    let playerEntry = prompt("What's your move?");
+    let playerEntry = prompt("What's your move?").toLowerCase();
 
-    return playerEntry.toLowerCase();
+    if (playerEntry === "rock" || "paper" || "scissors") {
+
+        return;
+
+    } else {
+
+        alert("Invalid Entry");
+
+        playerPlay(); 
+
+    }
 
 }
 
+console.log(playerPlay());

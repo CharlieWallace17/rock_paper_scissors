@@ -11,22 +11,32 @@ function computerPlay() { //Generates random computer move.
     } else { return "scissors"; }
 }
 
-function playerPlay() {
+let computerSelection = computerPlay();
 
-    let playerEntry = prompt("What's your move?").toLowerCase();
+let playerSelection = prompt("What's your move?").toLowerCase();
 
-    if (playerEntry === "rock" || "paper" || "scissors") {
+function playRound(playerSelection, computerSelection) {
 
-        return;
+    if (playerSelection === "rock" && computerSelection === "paper") {
+        return "You lose! Paper beats rock.";
 
-    } else {
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+        return "You win! Rock beats scissors.";
 
-        alert("Invalid Entry");
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+        return "You win! Paper beats rock.";
+    
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        return "You lose! Scissors beats paper.";
 
-        playerPlay(); 
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        return "You lose! Rock beats scissors.";
 
-    }
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        return "You win! Scissors beats paper.";
+    
+    } else { return "Draw!" };
 
 }
 
-console.log(playerPlay());
+console.log(playRound(playerSelection, computerSelection));

@@ -1,17 +1,16 @@
 function computerPlay() { //Generates random computer move.
+    let rando = (Math.floor(Math.random() * 100));
 
-    if (Math.floor(Math.random() * 100) <= 33) {
-        
+    if (rando <= 33) {
         return "rock";
 
-    } else if (Math.floor(Math.random() * 100) <= 66) {
-
+    } else if (rando <= 66) {
         return "paper";
 
     } else { return "scissors"; }
 }
 
-let computerSelection;
+let computerSelection; //Declare variables.
 let playerSelection;
 
 let playerScore = 0;
@@ -21,7 +20,6 @@ function playRound(playerSelection, computerSelection) {
 
     playerSelection = prompt("What's your move?").toLowerCase();
     computerSelection = computerPlay();
-
 
     if (playerSelection === "rock" && computerSelection === "paper") {
         ++computerScore;
@@ -70,34 +68,32 @@ function playRound(playerSelection, computerSelection) {
         "Player Score: " + playerScore + "\n" +
         "Computer Score: " + computerScore);
     }
-
 }
 
 function game() {
 
     for (let i = 0; i < 5; i++) {
-
         console.log(playRound());
     }
 
     if (playerScore > computerScore) {
         console.log(
             "YOU WIN!!!\n" +
-            "Final Player Score: " + playerScore + "\n" +
-            "Final Computer Score: " + computerScore);
+            "FINAL Player Score: " + playerScore + "\n" +
+            "FINAL Computer Score: " + computerScore);
 
     } else if (playerScore < computerScore) {
         console.log(
             "You lose...\n" +
-            "Final Player Score: " + playerScore + "\n" +
-            "Final Computer Score: " + computerScore);
+            "FINAL Player Score: " + playerScore + "\n" +
+            "FINAL Computer Score: " + computerScore);
+
     } else {
         console.log(
             "It's a tie!\n" +
-            "Final Player Score: " + playerScore + "\n" +
-            "Final Computer Score: " + computerScore); 
+            "FINAL Player Score: " + playerScore + "\n" +
+            "FINAL Computer Score: " + computerScore); 
     }
-
 }
 
 game();

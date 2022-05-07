@@ -1,4 +1,5 @@
 function computerPlay() { //Generates random computer move.
+    
     let rando = (Math.floor(Math.random() * 100));
 
     if (rando <= 33) {
@@ -21,52 +22,58 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = prompt("What's your move?").toLowerCase();
     computerSelection = computerPlay();
 
-    if (playerSelection === "rock" && computerSelection === "paper") {
-        ++computerScore;
-        return (
-            "You lose! Paper beats rock.\n" +
-            "Player Score: " + playerScore + "\n" +
-            "Computer Score: " + computerScore);
+    if ( (playerSelection === "rock") || (playerSelection === "paper") || (playerSelection === "scissors")) {
 
-    } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        ++playerScore;
-        return (
-            "You win! Rock beats scissors.\n" +
-            "Player Score: " + playerScore + "\n" +
-            "Computer Score: " + computerScore);
+        if (playerSelection === "rock" && computerSelection === "paper") {
+            ++computerScore;
+            return (
+                "You lose! Paper beats rock.\n" +
+                "Player Score: " + playerScore + "\n" +
+                "Computer Score: " + computerScore);
 
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
-        ++playerScore;
-        return (
-            "You win! Paper beats rock.\n" +
-            "Player Score: " + playerScore + "\n" +
-            "Computer Score: " + computerScore);
-    
-    } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        ++computerScore;
-        return (
-            "You lose! Scissors beats paper.\n" +
-            "Player Score: " + playerScore + "\n" +
-            "Computer Score: " + computerScore);
+        } else if (playerSelection === "rock" && computerSelection === "scissors") {
+            ++playerScore;
+            return (
+                "You win! Rock beats scissors.\n" +
+                "Player Score: " + playerScore + "\n" +
+                "Computer Score: " + computerScore);
 
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        ++computerScore;
-        return (
-            "You lose! Rock beats scissors.\n" +
-            "Player Score: " + playerScore + "\n" +
-            "Computer Score: " + computerScore);
+        } else if (playerSelection === "paper" && computerSelection === "rock") {
+            ++playerScore;
+            return (
+                "You win! Paper beats rock.\n" +
+                "Player Score: " + playerScore + "\n" +
+                "Computer Score: " + computerScore);
+        
+        } else if (playerSelection === "paper" && computerSelection === "scissors") {
+            ++computerScore;
+            return (
+                "You lose! Scissors beats paper.\n" +
+                "Player Score: " + playerScore + "\n" +
+                "Computer Score: " + computerScore);
 
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        ++playerScore;
-        return (
-            "You win! Scissors beats paper.\n" +
+        } else if (playerSelection === "scissors" && computerSelection === "rock") {
+            ++computerScore;
+            return (
+                "You lose! Rock beats scissors.\n" +
+                "Player Score: " + playerScore + "\n" +
+                "Computer Score: " + computerScore);
+
+        } else if (playerSelection === "scissors" && computerSelection === "paper") {
+            ++playerScore;
+            return (
+                "You win! Scissors beats paper.\n" +
+                "Player Score: " + playerScore + "\n" +
+                "Computer Score: " + computerScore);
+        
+        } else { return (
+            "Draw!\n" +
             "Player Score: " + playerScore + "\n" +
             "Computer Score: " + computerScore);
-    
-    } else { return (
-        "Draw!\n" +
-        "Player Score: " + playerScore + "\n" +
-        "Computer Score: " + computerScore);
+        } 
+    } else {
+        console.log("Invalid entry. Try again.");
+        return playRound();
     }
 }
 

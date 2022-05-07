@@ -72,7 +72,7 @@ function playRound(playerSelection, computerSelection) {
             "Computer Score: " + computerScore);
         } 
     } else {
-        console.log("Invalid entry. Try again.");
+        alert("Invalid entry. Try again.");
         return playRound();
     }
 }

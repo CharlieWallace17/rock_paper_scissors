@@ -1,3 +1,4 @@
+//This section controls gameplay:
 function computerPlay() { //Generates random computer move.
     
     let rando = (Math.floor(Math.random() * 100));
@@ -26,54 +27,54 @@ function playRound(playerSelection, computerSelection) {
 
         if (playerSelection === "rock" && computerSelection === "paper") {
             ++computerScore;
-            return (
+            console.log(
                 "You lose! Paper beats rock.\n" +
                 "Player Score: " + playerScore + "\n" +
                 "Computer Score: " + computerScore);
 
         } else if (playerSelection === "rock" && computerSelection === "scissors") {
             ++playerScore;
-            return (
+            console.log(
                 "You win! Rock beats scissors.\n" +
                 "Player Score: " + playerScore + "\n" +
                 "Computer Score: " + computerScore);
 
         } else if (playerSelection === "paper" && computerSelection === "rock") {
             ++playerScore;
-            return (
+            console.log(
                 "You win! Paper beats rock.\n" +
                 "Player Score: " + playerScore + "\n" +
                 "Computer Score: " + computerScore);
         
         } else if (playerSelection === "paper" && computerSelection === "scissors") {
             ++computerScore;
-            return (
+            console.log(
                 "You lose! Scissors beats paper.\n" +
                 "Player Score: " + playerScore + "\n" +
                 "Computer Score: " + computerScore);
 
         } else if (playerSelection === "scissors" && computerSelection === "rock") {
             ++computerScore;
-            return (
+            console.log(
                 "You lose! Rock beats scissors.\n" +
                 "Player Score: " + playerScore + "\n" +
                 "Computer Score: " + computerScore);
 
         } else if (playerSelection === "scissors" && computerSelection === "paper") {
             ++playerScore;
-            return (
+            console.log(
                 "You win! Scissors beats paper.\n" +
                 "Player Score: " + playerScore + "\n" +
                 "Computer Score: " + computerScore);
         
-        } else { return (
+        } else { console.log(
             "Draw!\n" +
             "Player Score: " + playerScore + "\n" +
             "Computer Score: " + computerScore);
         } 
     } else {
         alert("Invalid entry. Try again.");
-        return playRound();
+        playRound();
     }
 }
 
@@ -103,5 +104,13 @@ function game() {
     }
 }
 
-game();
+// game();
+
+//This section controls UI.
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", playRound);
+})
 

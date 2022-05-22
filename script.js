@@ -24,45 +24,45 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === "rock" && computerSelection === "paper") {
         ++computerScore;
-        div.textContent = (
-            "\nYou lose! Paper beats rock.\n" +
-            "Player Score: " + playerScore + "\n" +
-            "Computer Score: " + computerScore);
+        div.textContent =
+            `You lose! Paper beats rock.
+             Player Score: ${playerScore}
+             Computer Score: ${computerScore}`;
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         ++playerScore;
-        div.textContent = (
-            "\nYou win! Rock beats scissors.\n" +
-            "Player Score: " + playerScore + "\n" +
-            "Computer Score: " + computerScore);
+        div.textContent = 
+            `You win! Rock beats scissors.
+             Player Score: ${playerScore}
+             Computer Score: ${computerScore}`;
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         ++playerScore;
-        div.textContent = (
-            "\nYou win! Paper beats rock.\n" +
-            "Player Score: " + playerScore + "\n" +
-            "Computer Score: " + computerScore);
+        div.textContent = 
+            `You win! Paper beats rock.
+             Player Score: ${playerScore}
+             Computer Score: ${computerScore}`;
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         ++computerScore;
-        div.textContent = (
-            "\nYou lose! Scissors beats paper.\n" +
-            "Player Score: " + playerScore + "\n" +
-            "Computer Score: " + computerScore);
+        div.textContent = 
+            `You lose! Scissors beats paper.
+             Player Score: ${playerScore}
+             Computer Score: ${computerScore}`;
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         ++computerScore;
-        div.textContent = (
-            "\nYou lose! Rock beats scissors.\n" +
-            "Player Score: " + playerScore + "\n" +
-            "Computer Score: " + computerScore);
+        div.textContent = 
+            `You lose! Rock beats scissors.
+            Player Score: ${playerScore}
+            Computer Score: ${computerScore}`;
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         ++playerScore;
-        div.textContent = (
-            "\nYou win! Scissors beats paper.\n" +
-            "Player Score: " + playerScore + "\n" +
-            "Computer Score: " + computerScore);
+        div.textContent = 
+            `You win! Scissors beats paper.
+             Player Score: ${playerScore}
+             Computer Score: ${computerScore}`;
     } else { 
-        div.textContent = (
-        "\nDraw!\n" +
-        "Player Score: " + playerScore + "\n" +
-        "Computer Score: " + computerScore);
+        div.textContent = 
+        `Draw!
+         Player Score: ${playerScore}
+         Computer Score: ${computerScore}`;
     } 
 
     checkScore(playerScore, computerScore);
@@ -70,22 +70,22 @@ function playRound(playerSelection, computerSelection) {
 
 function checkScore(playerScore, computerScore) {
     if (playerScore === 5 && computerScore < 5) {
-        div.textContent = (
-            "\nYOU WIN!!!\n" +
-            "FINAL Player Score: " + playerScore + "\n" +
-            "FINAL Computer Score: " + computerScore);
+        div.textContent =
+            `YOU WIN!!!
+             FINAL Player Score: ${playerScore}
+             FINAL Computer Score: ${computerScore}`;
             newGame();
     } else if (computerScore === 5 && playerScore < 5) {
-        div.textContent = (
-            "\nYou lose...\n" +
-            "FINAL Player Score: " + playerScore + "\n" +
-            "FINAL Computer Score: " + computerScore);
+        div.textContent = 
+            `You lose...
+             FINAL Player Score: ${playerScore}
+             FINAL Computer Score: ${computerScore}`;
             newGame();
     } else if (computerScore === 5 && playerScore === 5) {
-        div.textContent = (
-            "\nIt's a tie!\n" +
-            "FINAL Player Score: " + playerScore + "\n" +
-            "FINAL Computer Score: " + computerScore); 
+        div.textContent = 
+            `It's a tie!
+             FINAL Player Score: ${playerScore}
+             FINAL Computer Score: ${computerScore}`; 
             newGame();
     }};
 

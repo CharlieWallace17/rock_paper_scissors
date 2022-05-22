@@ -16,7 +16,8 @@ let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
 
-text = document.querySelector(".text");
+round = document.querySelector(".round");
+score = document.querySelector(".score");
 
 function playRound(playerSelection, computerSelection) {
 
@@ -24,45 +25,45 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === "rock" && computerSelection === "paper") {
         ++computerScore;
-        text.textContent =
-            `You lose! Paper beats rock. 
-             Player Score: ${playerScore}
+        round.textContent = `You lose! Paper beats rock.`
+        score.textContent = 
+             `Player Score: ${playerScore}
              Computer Score: ${computerScore}`;
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         ++playerScore;
-        text.textContent = 
-            `You win! Rock beats scissors. 
-             Player Score: ${playerScore}
+        round.textContent = `You win! Rock beats scissors.` 
+        score.textContent =     
+            `Player Score: ${playerScore}
              Computer Score: ${computerScore}`;
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         ++playerScore;
-        text.textContent = 
-            `You win! Paper beats rock.
-             Player Score: ${playerScore}
+        round.textContent = `You win! Paper beats rock.`
+        score.textContent =  
+            `Player Score: ${playerScore}
              Computer Score: ${computerScore}`;
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         ++computerScore;
-        text.textContent = 
-            `You lose! Scissors beats paper.
-             Player Score: ${playerScore}
+        round.textContent = `You lose! Scissors beats paper.`
+        score.textContent =     
+            `Player Score: ${playerScore}
              Computer Score: ${computerScore}`;
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         ++computerScore;
-        text.textContent = 
-            `You lose! Rock beats scissors.
-            Player Score: ${playerScore}
+        round.textContent = `You lose! Rock beats scissors.`
+        score.textContent =    
+            `Player Score: ${playerScore}
             Computer Score: ${computerScore}`;
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         ++playerScore;
-        text.textContent = 
-            `You win! Scissors beats paper.
-             Player Score: ${playerScore}
+        round.textContent = `You win! Scissors beats paper.`
+        score.textContent =     
+            `Player Score: ${playerScore}
              Computer Score: ${computerScore}`;
     } else { 
-        text.textContent = 
-        `Draw!
-         Player Score: ${playerScore}
-         Computer Score: ${computerScore}`;
+        round.textContent = `Draw!`
+        scor.textContent =
+            `Player Score: ${playerScore}
+            Computer Score: ${computerScore}`;
     } 
 
     checkScore(playerScore, computerScore);
@@ -70,21 +71,21 @@ function playRound(playerSelection, computerSelection) {
 
 function checkScore(playerScore, computerScore) {
     if (playerScore === 5 && computerScore < 5) {
-        text.textContent =
-            `YOU WIN!!!
-             FINAL Player Score: ${playerScore}
+        round.textContent = `YOU WIN!!!`;
+        score.textContent =
+             `FINAL Player Score: ${playerScore}
              FINAL Computer Score: ${computerScore}`;
             newGame();
     } else if (computerScore === 5 && playerScore < 5) {
-        text.textContent = 
-            `You lose...
-             FINAL Player Score: ${playerScore}
+        round.textContent = `You lose...`;
+        score.textContent = 
+             `FINAL Player Score: ${playerScore}
              FINAL Computer Score: ${computerScore}`;
             newGame();
     } else if (computerScore === 5 && playerScore === 5) {
-        text.textContent = 
-            `It's a tie!
-             FINAL Player Score: ${playerScore}
+        round.textContent = `It's a tie!`;
+        score.textContent = 
+             `FINAL Player Score: ${playerScore}
              FINAL Computer Score: ${computerScore}`; 
             newGame();
     }};

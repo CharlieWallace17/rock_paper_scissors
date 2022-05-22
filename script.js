@@ -5,10 +5,8 @@ function computerPlay() { //Generates random computer move.
 
     if (rando <= 33) {
         return "rock";
-
     } else if (rando <= 66) {
         return "paper";
-
     } else { return "scissors"; }
 }
 
@@ -18,86 +16,83 @@ let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
 
+div = document.querySelector("div");
+
 function playRound(playerSelection, computerSelection) {
 
     computerSelection = computerPlay();
 
     if (playerSelection === "rock" && computerSelection === "paper") {
         ++computerScore;
-        console.log(
-            "You lose! Paper beats rock.\n" +
+        div.textContent = (
+            "\nYou lose! Paper beats rock.\n" +
             "Player Score: " + playerScore + "\n" +
             "Computer Score: " + computerScore);
-
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         ++playerScore;
-        console.log(
-            "You win! Rock beats scissors.\n" +
+        div.textContent = (
+            "\nYou win! Rock beats scissors.\n" +
             "Player Score: " + playerScore + "\n" +
             "Computer Score: " + computerScore);
-
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         ++playerScore;
-        console.log(
-            "You win! Paper beats rock.\n" +
+        div.textContent = (
+            "\nYou win! Paper beats rock.\n" +
             "Player Score: " + playerScore + "\n" +
             "Computer Score: " + computerScore);
-    
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         ++computerScore;
-        console.log(
-            "You lose! Scissors beats paper.\n" +
+        div.textContent = (
+            "\nYou lose! Scissors beats paper.\n" +
             "Player Score: " + playerScore + "\n" +
             "Computer Score: " + computerScore);
-
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         ++computerScore;
-        console.log(
-            "You lose! Rock beats scissors.\n" +
+        div.textContent = (
+            "\nYou lose! Rock beats scissors.\n" +
             "Player Score: " + playerScore + "\n" +
             "Computer Score: " + computerScore);
-
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         ++playerScore;
-        console.log(
-            "You win! Scissors beats paper.\n" +
+        div.textContent = (
+            "\nYou win! Scissors beats paper.\n" +
             "Player Score: " + playerScore + "\n" +
             "Computer Score: " + computerScore);
-    
-    } else { console.log(
-        "Draw!\n" +
+    } else { 
+        div.textContent = (
+        "\nDraw!\n" +
         "Player Score: " + playerScore + "\n" +
         "Computer Score: " + computerScore);
     } 
+
+    checkScore(playerScore, computerScore);
 }
 
-function game() {
-
-    for (let i = 0; i < 5; i++) {
-        console.log(playRound());
-    }
-
-    if (playerScore > computerScore) {
-        console.log(
-            "YOU WIN!!!\n" +
+function checkScore(playerScore, computerScore) {
+    if (playerScore === 5 && computerScore < 5) {
+        div.textContent = (
+            "\nYOU WIN!!!\n" +
             "FINAL Player Score: " + playerScore + "\n" +
             "FINAL Computer Score: " + computerScore);
-
-    } else if (playerScore < computerScore) {
-        console.log(
-            "You lose...\n" +
+            newGame();
+    } else if (computerScore === 5 && playerScore < 5) {
+        div.textContent = (
+            "\nYou lose...\n" +
             "FINAL Player Score: " + playerScore + "\n" +
             "FINAL Computer Score: " + computerScore);
-
-    } else {
-        console.log(
-            "It's a tie!\n" +
+            newGame();
+    } else if (computerScore === 5 && playerScore === 5) {
+        div.textContent = (
+            "\nIt's a tie!\n" +
             "FINAL Player Score: " + playerScore + "\n" +
             "FINAL Computer Score: " + computerScore); 
-    }
-}
+            newGame();
+    }};
 
-// game();
+function newGame() {
+    playerScore = 0;
+    computerScore = 0;
+}
 
 //This section controls UI.
 
@@ -108,10 +103,8 @@ buttons.forEach((button) => {
         if (button.className === "rock") {
             playRound("rock");
         } else if (button.className === "paper") {
-            playerSelection = "paper";
             playRound("paper");
         } else {
-            playerSelection = "scissors";
             playRound("scissors");
         }});
 });
